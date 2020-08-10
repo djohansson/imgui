@@ -41,6 +41,8 @@ struct ImGui_ImplVulkan_InitInfo
     VkSampleCountFlagBits        MSAASamples;   // >= VK_SAMPLE_COUNT_1_BIT
     const VkAllocationCallbacks* Allocator;
     void                (*CheckVkResultFn)(VkResult err);
+    void                (*DeleteBufferFn)(void* user_data, VkBuffer buffer, VkDeviceMemory buffer_memory, const VkAllocationCallbacks* allocator);
+    void*               UserData;
 };
 
 // Called by user code
